@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Férias Sidy & Thali</title>
+  <style>
+    body, html {
+    height: 100%;
+    min-height: 100%;
+      }
+      
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        background: url('prato.jpg') no-repeat center center / cover;
+        color: white;
+      }
+
+      .countdown-container {
+        text-align: center;
+        color: #ffffff;
+        font-size: 50px;
+      }
+
+      .countdown-item {
+        display: inline-block;
+        margin: 20px;
+        margin-bottom: 80px;
+        width: 90px;
+        height: 90px;
+        border: 4px solid #ffffff;
+        border-radius: 50%;
+        line-height: 80px;
+        font-size: 40px;
+      }
+      
+      p {
+      font-size: 50px;
+      margin-bottom: 0.5em;
+      line-height: 1.4em;
+      font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+  }
+</style>
+</head>
+<body>
+  
+  <div class="countdown-container">
+    <p>Férias Sidy & Thali</p>
+    <div id="countdown">
+      <div class="countdown-item" id="days"></div>
+      <div class="countdown-item" id="hours"></div>
+      <div class="countdown-item" id="minutes"></div>
+      <div class="countdown-item" id="seconds"></div>
+    </div>
+  </div>
+
+  <script>
+    function startCountdown() {
+      var countDownDate = new Date("2023-08-05T18:00:00").getTime(); // Data e horário fixos (ano-mês-diaThora:Minuto:Segundo)
+
+      var countdownFunction = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days + "d";
+        document.getElementById("hours").innerHTML = hours + "h";
+        document.getElementById("minutes").innerHTML = minutes + "m";
+        document.getElementById("seconds").innerHTML = seconds + "s";
+
+        if (distance < 0) {
+          clearInterval(countdownFunction);
+          document.getElementById("countdown").innerHTML = "Partiuuuuuuuuuuuuuuuuuuuuuuuuuu!!!";
+        }
+      }, 1000);
+    }
+
+    startCountdown(); // Inicia o contador automaticamente
+  </script>
+</body>
+</html>
